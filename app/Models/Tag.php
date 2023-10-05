@@ -9,6 +9,13 @@ class Tag extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'slug', 'color']; //habiliatr almacenamiento masivo - asignacion
+
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
+
     //relacion muchos a muchos
     public function posts(){
         return $this->belongsToMany(Post::class);
